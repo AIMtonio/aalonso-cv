@@ -5,20 +5,141 @@
   --font-mono: var(--font-geist-mono);
 }
 
+:root {
+  --background: #f2f7f7;
+  --background-alt: #dfeceb;
+  --foreground: #10262b;
+  --muted: #557176;
+  --card: rgba(255, 255, 255, 0.74);
+  --card-strong: #fbfefe;
+  --border: rgba(16, 38, 43, 0.12);
+  --accent: #0f5f67;
+  --accent-strong: #0a4349;
+  --accent-soft: rgba(15, 95, 103, 0.12);
+  --accent-soft-strong: rgba(15, 95, 103, 0.2);
+  --hero-glow: rgba(15, 95, 103, 0.2);
+}
+
+.dark {
+  --background: #07161a;
+  --background-alt: #0d2126;
+  --foreground: #e5f7f5;
+  --muted: #93b3b6;
+  --card: rgba(10, 30, 35, 0.72);
+  --card-strong: #10282d;
+  --border: rgba(160, 213, 217, 0.14);
+  --accent: #59b2bc;
+  --accent-strong: #8ad9df;
+  --accent-soft: rgba(89, 178, 188, 0.14);
+  --accent-soft-strong: rgba(89, 178, 188, 0.22);
+  --hero-glow: rgba(42, 125, 136, 0.28);
+}
+
+* {
+  border-color: var(--border);
+}
+
 html {
   scroll-behavior: smooth;
 }
 
-::-webkit-scrollbar {
-  width: 4px;
+body {
+  min-height: 100vh;
+  color: var(--foreground);
+  background:
+    radial-gradient(circle at top left, var(--hero-glow), transparent 34%),
+    radial-gradient(circle at 85% 12%, var(--accent-soft), transparent 20%),
+    linear-gradient(180deg, var(--background), var(--background-alt));
+  font-family: var(--font-geist-sans), sans-serif;
 }
+
+::selection {
+  background: var(--accent);
+  color: #f7ffff;
+}
+
+a {
+  transition: color 180ms ease, border-color 180ms ease, background-color 180ms ease,
+    transform 180ms ease, box-shadow 180ms ease;
+}
+
+.surface-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 24px 80px -46px rgba(3, 19, 24, 0.8);
+  backdrop-filter: blur(18px);
+}
+
+.surface-card-strong {
+  background: var(--card-strong);
+  border: 1px solid var(--border);
+  box-shadow: 0 24px 80px -46px rgba(3, 19, 24, 0.8);
+}
+
+.section-band {
+  background: linear-gradient(180deg, transparent, var(--accent-soft));
+}
+
+.section-label {
+  color: var(--accent);
+}
+
+.section-title {
+  color: var(--foreground);
+}
+
+.text-muted {
+  color: var(--muted);
+}
+
+.button-primary {
+  background: var(--accent);
+  color: #f4ffff;
+  box-shadow: 0 16px 40px -22px var(--accent);
+}
+
+.button-primary:hover {
+  background: var(--accent-strong);
+}
+
+.button-secondary {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--foreground);
+}
+
+.button-secondary:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.tag-pill {
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-soft-strong);
+  color: var(--accent-strong);
+}
+
+.hero-mesh {
+  background-image:
+    linear-gradient(rgba(15, 95, 103, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 95, 103, 0.06) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: radial-gradient(circle at center, black 40%, transparent 88%);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: #d4d4d8;
+  background: var(--accent-soft-strong);
   border-radius: 99px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #a1a1aa;
+  background: var(--accent);
 }

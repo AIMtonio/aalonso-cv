@@ -4,13 +4,13 @@ import { m } from "framer-motion";
 
 const projects = [
   {
-    title: "Proyecto 1",
+    title: "dinamic-architect ",
     description:
-      "Descripción del proyecto. Explica qué problema resuelve, cómo lo construiste y cuál fue tu rol en el desarrollo.",
-    tags: ["Next.js", "TypeScript", "Prisma"],
-    github: "#",
-    demo: "#",
-  },
+      "Desarrolle un sistema para la generación de diagramas de componentes, de secuencia, empresariales, gestión de proyectos y automatización de procesos en el área de arquitectura, aplicando IA con las mejores prácticas para la optimización de tiempo el diseño de arquitecturas robustas.",
+    tags: ["Angular.js", "TypeScript", "Nest.js", "AWS"],
+    github: "https://github.com/AIMtonio/back-dinamic-architect",
+    demo: "https://portalarquitectura.antonioalonso.com.mx/",
+  },/*
   {
     title: "Proyecto 2",
     description:
@@ -34,7 +34,7 @@ const projects = [
     tags: ["Vue.js", "Tailwind", "Supabase"],
     github: "#",
     demo: "#",
-  },
+  },*/
 ];
 
 function GitHubIcon() {
@@ -72,10 +72,10 @@ export default function Projects() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-xs font-semibold tracking-widest uppercase text-zinc-400 mb-2">
+          <p className="section-label mb-2 text-xs font-semibold uppercase tracking-[0.28em]">
             04. Proyectos
           </p>
-          <h2 className="text-4xl font-bold tracking-tight text-zinc-900 mb-12">
+          <h2 className="section-title mb-12 text-4xl font-bold tracking-tight">
             Lo que he construido
           </h2>
         </m.div>
@@ -89,14 +89,14 @@ export default function Projects() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               whileHover={{ y: -4 }}
-              className="group bg-white border border-zinc-100 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-zinc-200 transition-all duration-300 flex flex-col"
+              className="surface-card group flex flex-col rounded-[2rem] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[color:var(--accent)]"
             >
               <div className="flex items-start justify-between mb-3">
-                <h3 className="font-semibold text-zinc-900">{project.title}</h3>
-                <div className="flex items-center gap-3 text-zinc-400">
+                <h3 className="font-semibold text-[color:var(--foreground)]">{project.title}</h3>
+                <div className="flex items-center gap-3 text-[color:var(--muted)]">
                   <a
                     href={project.github}
-                    className="hover:text-zinc-900 transition-colors"
+                    className="hover:text-[color:var(--accent)] transition-colors"
                     aria-label="Ver en GitHub"
                   >
                     <GitHubIcon />
@@ -104,7 +104,7 @@ export default function Projects() {
                   {project.demo && (
                     <a
                       href={project.demo}
-                      className="hover:text-zinc-900 transition-colors"
+                      className="hover:text-[color:var(--accent)] transition-colors"
                       aria-label="Ver demo"
                     >
                       <ExternalLinkIcon />
@@ -113,7 +113,7 @@ export default function Projects() {
                 </div>
               </div>
 
-              <p className="text-zinc-600 text-sm leading-relaxed mb-4 flex-1">
+              <p className="text-muted mb-4 flex-1 text-sm leading-7">
                 {project.description}
               </p>
 
@@ -121,7 +121,7 @@ export default function Projects() {
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="text-xs font-medium text-zinc-500 bg-zinc-50 border border-zinc-100 px-2.5 py-1 rounded-md"
+                    className="tag-pill rounded-md px-2.5 py-1 text-xs font-medium"
                   >
                     {tag}
                   </span>

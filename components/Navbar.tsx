@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { m, AnimatePresence } from "framer-motion";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const links = [
   { label: "Sobre mí", href: "#about" },
@@ -29,14 +30,14 @@ export default function Navbar() {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/90 backdrop-blur-sm border-b border-zinc-100 shadow-sm"
+          ? "border-b border-[color:var(--border)] bg-[color:var(--card)] shadow-[0_18px_48px_-36px_rgba(3,19,24,0.9)] backdrop-blur-xl"
           : "bg-transparent"
       }`}
     >
       <nav className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
         <a
           href="#"
-          className="text-sm font-bold tracking-tight text-zinc-900 hover:text-zinc-500 transition-colors"
+          className="text-sm font-bold tracking-[0.24em] text-[color:var(--foreground)] hover:text-[color:var(--accent)] transition-colors"
         >
           AA
         </a>
@@ -47,7 +48,7 @@ export default function Navbar() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors"
+                className="text-sm text-[color:var(--muted)] hover:text-[color:var(--foreground)] transition-colors"
               >
                 {l.label}
               </a>
@@ -55,28 +56,35 @@ export default function Navbar() {
           ))}
         </ul>
 
+        <div className="hidden md:flex items-center gap-3">
+          <ThemeToggle />
+        </div>
+
         {/* Mobile hamburger */}
-        <button
-          className="md:hidden flex flex-col gap-1.5 p-1"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          <span
-            className={`block w-5 h-0.5 bg-zinc-900 transition-all duration-300 ${
-              menuOpen ? "rotate-45 translate-y-2" : ""
-            }`}
-          />
-          <span
-            className={`block w-5 h-0.5 bg-zinc-900 transition-all duration-300 ${
-              menuOpen ? "opacity-0" : ""
-            }`}
-          />
-          <span
-            className={`block w-5 h-0.5 bg-zinc-900 transition-all duration-300 ${
-              menuOpen ? "-rotate-45 -translate-y-2" : ""
-            }`}
-          />
-        </button>
+        <div className="flex items-center gap-3 md:hidden">
+          <ThemeToggle />
+          <button
+            className="flex flex-col gap-1.5 p-1"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            <span
+              className={`block w-5 h-0.5 bg-[color:var(--foreground)] transition-all duration-300 ${
+                menuOpen ? "rotate-45 translate-y-2" : ""
+              }`}
+            />
+            <span
+              className={`block w-5 h-0.5 bg-[color:var(--foreground)] transition-all duration-300 ${
+                menuOpen ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`block w-5 h-0.5 bg-[color:var(--foreground)] transition-all duration-300 ${
+                menuOpen ? "-rotate-45 -translate-y-2" : ""
+              }`}
+            />
+          </button>
+        </div>
       </nav>
 
       {/* Mobile menu */}
@@ -87,14 +95,14 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden bg-white border-b border-zinc-100 overflow-hidden"
+            className="surface-card md:hidden mx-4 mb-3 overflow-hidden rounded-3xl"
           >
             <ul className="max-w-5xl mx-auto px-6 py-4 flex flex-col gap-4">
               {links.map((l) => (
                 <li key={l.href}>
                   <a
                     href={l.href}
-                    className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors"
+                    className="text-sm text-[color:var(--muted)] hover:text-[color:var(--foreground)] transition-colors"
                     onClick={() => setMenuOpen(false)}
                   >
                     {l.label}

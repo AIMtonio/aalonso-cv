@@ -5,24 +5,24 @@ import { m } from "framer-motion";
 const socials = [
   {
     label: "Email",
-    value: "tu@email.com",
-    href: "mailto:tu@email.com",
+    value: "antoniomc159807@gmail.com",
+    href: "mailto:antoniomc159807@gmail.com",
   },
   {
     label: "GitHub",
-    value: "github.com/tuusuario",
-    href: "https://github.com",
+    value: "github.com/AIMtonio",
+    href: "https://github.com/AIMtonio",
   },
   {
     label: "LinkedIn",
-    value: "linkedin.com/in/tuusuario",
-    href: "https://linkedin.com",
+    value: "linkedin.com/in/antonioalonsodev",
+    href: "https://www.linkedin.com/in/antonioalonsodev/",
   },
-  {
+  /*{
     label: "Twitter / X",
     value: "@tuusuario",
     href: "https://twitter.com",
-  },
+  },*/
 ];
 
 export default function Contact() {
@@ -35,19 +35,19 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-xs font-semibold tracking-widest uppercase text-zinc-400 mb-2">
+          <p className="section-label mb-2 text-xs font-semibold uppercase tracking-[0.28em]">
             06. Contacto
           </p>
-          <h2 className="text-4xl font-bold tracking-tight text-zinc-900 mb-4">
+          <h2 className="section-title mb-4 text-4xl font-bold tracking-tight">
             Hablemos
           </h2>
-          <p className="text-zinc-500 max-w-lg leading-relaxed mb-12">
+          <p className="text-muted mb-12 max-w-lg leading-8">
             Estoy abierto a nuevas oportunidades. Si tienes un proyecto en
             mente o simplemente quieres saludar, no dudes en escribirme.
           </p>
         </m.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {socials.map((social, i) => (
             <m.a
               key={social.label}
@@ -59,12 +59,12 @@ export default function Contact() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               whileHover={{ y: -4 }}
-              className="bg-white border border-zinc-100 rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-zinc-200 transition-all duration-300 group"
+              className="surface-card group rounded-[2rem] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[color:var(--accent)]"
             >
-              <p className="text-xs font-semibold uppercase tracking-widest text-zinc-400 mb-2 group-hover:text-zinc-600 transition-colors">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.28em] text-[color:var(--accent)] transition-colors">
                 {social.label}
               </p>
-              <p className="text-sm font-medium text-zinc-800 truncate">
+              <p className="text-sm font-medium text-[color:var(--foreground)] break-words">
                 {social.value}
               </p>
             </m.a>
@@ -76,9 +76,9 @@ export default function Contact() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-16 pt-8 border-t border-zinc-100 text-center"
+          className="mt-16 border-t border-[color:var(--border)] pt-8 text-center"
         >
-          <p className="text-sm text-zinc-400">
+          <p className="text-sm text-[color:var(--muted)]">
             Diseñado y construido con Next.js, Tailwind CSS & Framer Motion
           </p>
         </m.div>
