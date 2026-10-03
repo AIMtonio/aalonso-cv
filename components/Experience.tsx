@@ -5,28 +5,46 @@ import { m } from "framer-motion";
 const experiences = [
   {
     company: "Macropay",
-    role: "Arquitecto de TI",
-    period: "2025 — Presente",
-    description:
-      "Me integro al área de arquitectura desarrollando soluciones empresariales para proyectos de las áreas de comercial, finanzas, innovación crediticia y experiencia del cliente. Diseño arquitecturas modulares robustas y escalables, como la implementada para la apertura de tiendas Macropay en el pais de Guatemala, preparada para su expansión a otros países.",
-    tags: ["Java", "Nest.js", "AWS"],
-  },
-   {
-    company: "Macropay",
-    role: "Programador Backend SR",
-    period: "2022 — 2025",
-    description:
-      "Me integro como lider de desarrollo para los proyectos del area comercial liderando equipos de 6 integrantes, realizando la planificacion de tareas, revisiones tenicas, gestion de procesos, integracion directa con el equipo de arquitectura y buscando desarrollo de software agil y eficaz.",
-    tags: ["Java", "Nest.js", "AWS"],
+    period: "2022 — Presente",
+    roles: [
+      {
+        role: "Arquitecto de TI",
+        period: "2025 — Presente",
+        highlights: [
+          "Diseñé la arquitectura modular con la que Macropay abrió sus tiendas en Guatemala, preparada para replicarse en otros países sin reescribir el núcleo.",
+          "Defino soluciones empresariales para las áreas Comercial, Finanzas, Innovación Crediticia y Experiencia del Cliente.",
+          "Construí un portal interno con IA que genera diagramas de arquitectura y automatiza tareas de diseño y gestión de proyectos.",
+        ],
+        tags: ["Arquitectura de soluciones", "AWS", "Java", "NestJS", "IA aplicada"],
+      },
+      {
+        role: "Líder técnico · Backend SR",
+        period: "2022 — 2025",
+        highlights: [
+          "Lideré un equipo de 6 desarrolladores en los proyectos del área comercial.",
+          "Planifiqué el trabajo del equipo, hice revisiones técnicas de código y definí procesos de desarrollo ágil.",
+          "Fui el enlace directo con el equipo de arquitectura para alinear cada entrega con los estándares de la empresa.",
+        ],
+        tags: ["Liderazgo técnico", "Java", "NestJS", "AWS", "Metodologías ágiles"],
+      },
+    ],
   },
   {
     company: "EFISYS",
-    role: "Analista Programador",
     period: "2021 — 2022",
-    description:
-      "Analista programador, encargado de desarrollar funcionalidades para diferentes módulos de un Core bancario, brindando soluciones financieras. Desarrollo de aplicaciones con Java Spring Boot y JavaScript; gestión de bases de datos y procesos ETL (MySQL, PDI, Report Designer); integración de servicios web y almacenamiento en la nube (WS Soap, Amazon S3); control de versiones y colaboración en proyectos (GitLab).",
-    tags: ["Java", "Spring Boot", "JavaScript", "MySQL", "PDI", "Report Designer", "WS Soap", "Amazon S3", "GitLab"],
-  }
+    roles: [
+      {
+        role: "Analista Programador",
+        period: "2021 — 2022",
+        highlights: [
+          "Desarrollé funcionalidades para distintos módulos de un core bancario con Java Spring Boot y JavaScript.",
+          "Construí procesos ETL y reportes con MySQL, Pentaho Data Integration y Report Designer.",
+          "Integré servicios web SOAP y almacenamiento en Amazon S3.",
+        ],
+        tags: ["Java", "Spring Boot", "JavaScript", "MySQL", "Pentaho", "SOAP", "Amazon S3", "GitLab"],
+      },
+    ],
+  },
 ];
 
 export default function Experience() {
@@ -47,42 +65,66 @@ export default function Experience() {
           </h2>
         </m.div>
 
-        <div className="space-y-4">
+        <div className="space-y-6">
           {experiences.map((exp, i) => (
-            <m.div
-              key={`${exp.company}-${exp.role}`}
+            <m.article
+              key={exp.company}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              whileHover={{ y: -2 }}
-              className="surface-card rounded-[2rem] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[color:var(--accent)]"
+              className="surface-card rounded-[2rem] p-6 md:p-8"
             >
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-3">
-                <div>
-                  <h3 className="font-semibold text-[color:var(--foreground)]">{exp.role}</h3>
-                  <p className="mt-0.5 text-sm text-[color:var(--muted)]">{exp.company}</p>
-                </div>
-                <span className="tag-pill self-start whitespace-nowrap rounded-full px-3 py-1 font-mono text-xs">
-                  {exp.period}
-                </span>
+              <div className="mb-6 flex flex-wrap items-baseline justify-between gap-2">
+                <h3 className="text-2xl font-bold tracking-tight text-[color:var(--foreground)]">{exp.company}</h3>
+                <span className="font-mono text-xs text-[color:var(--muted)]">{exp.period}</span>
               </div>
 
-              <p className="text-muted mb-4 text-sm leading-7">
-                {exp.description}
-              </p>
+              <ol className="relative space-y-8 border-l border-[color:var(--accent-soft-strong)] pl-6">
+                {exp.roles.map((role, j) => (
+                  <li key={role.role} className="relative">
+                    <span
+                      className={`absolute -left-[31px] top-1.5 h-3 w-3 rounded-full border-2 border-[color:var(--accent)] ${
+                        j === 0 ? "bg-[color:var(--accent)]" : "bg-[color:var(--card-strong)]"
+                      }`}
+                    />
+                    <div className="mb-3 flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
+                      <h4 className="font-semibold text-[color:var(--foreground)]">
+                        {role.role}
+                        {exp.roles.length > 1 && j === 0 && (
+                          <span className="ml-2 align-middle text-xs font-medium text-[color:var(--accent)]">
+                            ↑ Promoción
+                          </span>
+                        )}
+                      </h4>
+                      <span className="tag-pill self-start whitespace-nowrap rounded-full px-3 py-1 font-mono text-xs">
+                        {role.period}
+                      </span>
+                    </div>
 
-              <div className="flex flex-wrap gap-2">
-                {exp.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="tag-pill rounded-full px-3 py-1 text-xs font-medium"
-                  >
-                    {tag}
-                  </span>
+                    <ul className="text-muted mb-4 space-y-2 text-sm leading-7">
+                      {role.highlights.map((item) => (
+                        <li key={item} className="flex gap-3">
+                          <span className="mt-[0.7rem] h-1 w-1 shrink-0 rounded-full bg-[color:var(--accent)]" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="flex flex-wrap gap-2">
+                      {role.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="tag-pill rounded-full px-3 py-1 text-xs font-medium"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </li>
                 ))}
-              </div>
-            </m.div>
+              </ol>
+            </m.article>
           ))}
         </div>
       </div>

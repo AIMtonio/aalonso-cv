@@ -4,18 +4,18 @@ import { m } from "framer-motion";
 
 const education = [
   {
-    institution: "UTTEC",
-    degree: "Técnico Superior Universitario",
-    period: "Sep 2016 — 2018",
+    institution: "Universidad Tecnológica de Tecámac (UTTEC)",
+    degree: "Licenciatura en Tecnologías de la Información y Comunicación",
+    period: "Sep 2019 — Ago 2020",
     description:
-      "Técnico Superior Universitario en Tecnologías de la Información y Comunicación, área Sistemas Informáticos",
+      "Continuación de estudios tras el TSU, con enfoque en desarrollo de software.",
   },
   {
-    institution: "UTTEC",
-    degree: "Licenciatura en Informática",
-    period: "Sep 2019 - Ago 2020",
+    institution: "Universidad Tecnológica de Tecámac (UTTEC)",
+    degree: "TSU en Tecnologías de la Información y Comunicación",
+    period: "Sep 2016 — 2018",
     description:
-      "Licenciatura en Tecnologías de la Información y Comunicación",
+      "Técnico Superior Universitario, área Sistemas Informáticos.",
   },
 ];
 
@@ -45,8 +45,7 @@ export default function Education() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              whileHover={{ y: -2 }}
-              className="surface-card rounded-[2rem] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[color:var(--accent)]"
+              className="surface-card rounded-[2rem] p-6 transition-colors duration-300 hover:border-[color:var(--accent)]"
             >
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-3">
                 <div>

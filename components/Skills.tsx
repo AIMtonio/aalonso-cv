@@ -4,20 +4,29 @@ import { m } from "framer-motion";
 
 const skillGroups = [
   {
-    category: "Frontend",
-    skills: ["React", "Angular", "TypeScript", "Astro"],
+    category: "Arquitectura",
+    skills: ["Arquitectura de soluciones", "Arquitecturas modulares", "Integración de servicios", "Diagramación UML"],
+    span: "lg:col-span-3",
   },
   {
     category: "Backend",
-    skills: ["Node.js", "Java", "NestJS", "C#", "REST APIs", "GraphQL", "Soap"],
+    skills: ["Java", "Spring Boot", "Node.js", "NestJS", "C#", "REST APIs", "GraphQL", "SOAP"],
+    span: "lg:col-span-3",
   },
   {
-    category: "Base de datos",
-    skills: ["PostgreSQL", "MongoDB", "MySQL", "SQL Server"],
+    category: "Cloud & DevOps",
+    skills: ["AWS", "Docker", "CI/CD", "Jenkins", "Git", "Linux"],
+    span: "lg:col-span-2",
   },
   {
-    category: "DevOps & Tools",
-    skills: ["Git", "Docker", "CI/CD", "AWS", "Linux", "Jenkins"],
+    category: "Bases de datos",
+    skills: ["PostgreSQL", "MySQL", "SQL Server", "MongoDB"],
+    span: "lg:col-span-2",
+  },
+  {
+    category: "Frontend",
+    skills: ["Angular", "React", "TypeScript", "Astro"],
+    span: "sm:col-span-2 lg:col-span-2",
   },
 ];
 
@@ -39,7 +48,7 @@ export default function Skills() {
           </h2>
         </m.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-6 gap-4">
           {skillGroups.map((group, i) => (
             <m.div
               key={group.category}
@@ -47,7 +56,7 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="surface-card rounded-[2rem] p-6"
+              className={`surface-card rounded-[2rem] p-6 ${group.span}`}
             >
               <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-[color:var(--accent)]">
                 {group.category}

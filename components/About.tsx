@@ -4,9 +4,9 @@ import { m } from "framer-motion";
 
 const info = [
   { label: "Ubicación", value: "Mérida, Yucatán, México" },
-  { label: "Email", value: "antoniomc159807@gmail.com" },
-  { label: "Disponibilidad", value: "Disponible" },
-  { label: "Idiomas", value: "ES" },
+  { label: "Modalidad", value: "Remoto · Híbrido" },
+  { label: "Disponibilidad", value: "Abierto a oportunidades" },
+  { label: "Idiomas", value: "Español (nativo)" },
 ];
 
 export default function About() {
@@ -37,15 +37,17 @@ export default function About() {
             className="surface-card md:col-span-3 rounded-[2rem] p-8"
           >
             <p className="text-muted mb-4 leading-8">
-              Soy un desarrollador con más de 6 años de experiencia en el área de desarrollo backend. 
-              Me apasiona transformar ideas en soluciones tecnológicas, convencido de que la imaginación 
-              es el único límite para la innovación. Actualmente me enfoco en la creación de arquitecturas
-              empresariales y en la automatización de procesos, con el objetivo de optimizar tareas y 
-              facilitar la vida diaria.
+              Empecé construyendo módulos para un core bancario, pasé a liderar un equipo de desarrollo y hoy
+              diseño la arquitectura de soluciones empresariales en Macropay. En ese camino aprendí que el buen
+              software no se mide por la tecnología que usa, sino por lo fácil que es hacerlo crecer.
+            </p>
+            <p className="text-muted mb-4 leading-8">
+              Me enfoco en arquitecturas modulares, integración de servicios en AWS y automatización de procesos.
+              También aplico IA a mi propio trabajo: construí un portal que genera diagramas de arquitectura y
+              acelera el diseño de soluciones.
             </p>
             <p className="text-muted leading-8">
-              Fuera del ámbito profesional, disfruto viajar en moto, el camping y el fútbol americano,
-               actividades que reflejan mi espíritu aventurero y mi gusto por los retos.
+              Fuera del trabajo me encontrarás viajando en moto, acampando o viendo fútbol americano.
             </p>
           </m.div>
 
@@ -57,7 +59,7 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="surface-card md:col-span-2 rounded-[2rem] p-8"
           >
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
               {info.map((item) => (
                 <div key={item.label} className="min-w-0 rounded-2xl border border-[color:var(--border)] bg-[color:var(--accent-soft)] p-4">
                   <p className="mb-1 text-xs font-semibold uppercase tracking-[0.24em] text-[color:var(--accent)]">

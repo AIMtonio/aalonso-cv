@@ -13,9 +13,38 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const title = "Antonio Alonso — Arquitecto de TI & Backend Engineer";
+const description =
+  "Arquitecto de TI en Macropay. Diseño arquitecturas backend escalables para operaciones financieras y comerciales en múltiples países. Java, NestJS y AWS.";
+
 export const metadata: Metadata = {
-  title: "Tu Nombre — CV",
-  description: "CV y portfolio personal",
+  metadataBase: new URL("https://antonioalonso.com.mx"),
+  title,
+  description,
+  authors: [{ name: "Antonio Alonso" }],
+  keywords: [
+    "Antonio Alonso",
+    "Arquitecto de TI",
+    "Arquitecto de software",
+    "Backend Engineer",
+    "Java",
+    "NestJS",
+    "AWS",
+    "Mérida",
+  ],
+  openGraph: {
+    type: "profile",
+    locale: "es_MX",
+    url: "/",
+    siteName: "Antonio Alonso",
+    title,
+    description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
 };
 
 export default function RootLayout({

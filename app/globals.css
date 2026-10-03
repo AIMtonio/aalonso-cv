@@ -143,3 +143,80 @@ a {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent);
 }
+
+/* Print / "Descargar CV (PDF)": clean, light, single-column output */
+@media print {
+  @page {
+    margin: 14mm 12mm;
+  }
+
+  :root,
+  .dark {
+    --background: #ffffff;
+    --background-alt: #ffffff;
+    --foreground: #10262b;
+    --muted: #3d575c;
+    --card: #ffffff;
+    --card-strong: #ffffff;
+    --border: rgba(16, 38, 43, 0.18);
+    --accent: #0f5f67;
+    --accent-strong: #0a4349;
+    --accent-soft: rgba(15, 95, 103, 0.06);
+    --accent-soft-strong: rgba(15, 95, 103, 0.2);
+  }
+
+  body {
+    background: #ffffff;
+    font-size: 12px;
+  }
+
+  /* Animated elements that were never scrolled into view must still print */
+  * {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  header,
+  button,
+  .hero-mesh,
+  [data-print-hidden] {
+    display: none !important;
+  }
+
+  section {
+    min-height: 0 !important;
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+    background: none !important;
+  }
+
+  h2 {
+    margin-bottom: 1.25rem !important;
+  }
+
+  .section-label,
+  h2,
+  h3,
+  h4 {
+    break-after: avoid;
+  }
+
+  /* Let big cards flow across pages; keep only small blocks intact */
+  .surface-card,
+  .surface-card-strong {
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    padding: 1.25rem !important;
+  }
+
+  li,
+  dl > div,
+  .rounded-2xl {
+    break-inside: avoid;
+  }
+
+  .button-primary {
+    box-shadow: none;
+  }
+}
