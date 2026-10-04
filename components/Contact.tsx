@@ -79,13 +79,14 @@ export default function Contact() {
             >
               {copied ? "¡Copiado!" : "Copiar email"}
             </button>
-            <button
-              type="button"
-              onClick={() => window.print()}
+            <a
+              href="/AntonioAlonsoCV.pdf"
+              download="AntonioAlonsoCV.pdf"
+              data-print-hidden
               className="button-secondary rounded-2xl px-5 py-2.5 text-sm font-semibold"
             >
               Descargar CV (PDF)
-            </button>
+            </a>
           </div>
         </m.div>
 

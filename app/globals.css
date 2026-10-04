@@ -144,7 +144,7 @@ a {
   background: var(--accent);
 }
 
-/* Print / "Descargar CV (PDF)": clean, light, single-column output */
+/* Print: clean, light, single-column output */
 @media print {
   @page {
     margin: 14mm 12mm;

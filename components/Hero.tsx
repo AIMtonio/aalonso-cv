@@ -102,14 +102,14 @@ export default function Hero() {
             >
               Ver proyecto destacado
             </a>
-            <button
-              type="button"
-              onClick={() => window.print()}
+            <a
+              href="/AntonioAlonsoCV.pdf"
+              download="AntonioAlonsoCV.pdf"
               className="button-secondary inline-flex items-center gap-2 rounded-2xl px-6 py-3 text-sm font-semibold"
             >
               <DownloadIcon />
               Descargar CV (PDF)
-            </button>
+            </a>
           </m.div>
         </div>
 
